@@ -1,5 +1,6 @@
 const express = require('express');
 const friendsRouter = require('./routers/friends.router');
+const path = require('path');
 
 const friendsRouter = express.Router()
 
@@ -32,6 +33,10 @@ app.use('/friends', friendsRouter);
 
 app.get('/', (req, res) => {
     res.send('It works!')
+});
+
+app.get('/photo', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'spbob.jpg'));
 });
 
 app.get('/friends', (req, res) => {
