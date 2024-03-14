@@ -1,8 +1,10 @@
 const express = require('express');
 const friendsRouter = require('./routers/friends.router');
 const path = require('path');
+const usersRouter = require('./routers/users.router')
 
-const friendsRouter = express.Router()
+// const { sequelize } = require('./db');
+
 
 const app = express();
 
@@ -22,12 +24,8 @@ const friends = [
 
 module.exports = friends;
 
-
-friendsRouter.post('/', postFriend)
-friendsRouter.get('/', getFriends);
-friendsRouter.get('/:friendId', getFriend);
-
 app.use('/friends', friendsRouter);
+app.use('/users', usersRouter)
 
 
 
