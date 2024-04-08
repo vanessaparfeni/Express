@@ -5,21 +5,21 @@ class UsersController {
         const user = await User.create(req.body);
         return res.json(user)
     }
-}
 
 
     async getOne(req, res) {
-    const { id } = req.params;
-    const user = await User.findOne({
-        where: { id }
-    })
-    return res.json(user)
-}
+        const { id } = req.params;
+        const user = await User.findOne({
+            where: { id }
+        })
+        return res.json(user)
+    }
+
 
     async getAll(req, res) {
-    const users = await User.findAndCountAll()
-    return res.json(users)
-    
+        const users = await User.findAndCountAll()
+        return res.json(users)
+    }
 }
 
 module.exports = new UsersController()

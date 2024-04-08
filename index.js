@@ -2,6 +2,7 @@ const express = require('express');
 const friendsRouter = require('./routers/friends.router');
 const path = require('path');
 const usersRouter = require('./routers/users.router')
+const authRouter = require('./routers/auth.router')
 
 // const { sequelize } = require('./db');
 
@@ -32,6 +33,12 @@ app.use('/users', usersRouter)
 app.get('/', (req, res) => {
     res.send('It works!')
 });
+// app.use('messages', messagesRouter);
+// app.use('/signup', authRouter.signup);
+// app.use('/login', authRouter.login);
+app.use('/auth', authRouter);
+
+
 
 app.get('/photo', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'spbob.jpg'));
